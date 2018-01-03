@@ -2,7 +2,9 @@
 
 ###Structure:
 >Semantic-UI as the CSS
+
 >Node.js Express as the back-end
+
 >MongoDB & Mongoose as the database 
     
 
