@@ -1,0 +1,31 @@
+<% include ./partials/header.ejs %>
+
+<div class="ui main text container segment">
+
+    <div class="ui huge header"><%= thisBlog.title %></div>
+
+    <div class = "ui top attached">
+        <div class = "item">
+            <img class = " ui centered rounded image" src="<%= thisBlog.image %>">
+        </div>
+        <div class = "item"><%= thisBlog.created.toDateString()%></div>
+        <!--this < %- % > will allow to run script. need santilizer -->
+        <div class = "item"><%- thisBlog.body%></div>
+
+
+    </div>
+
+
+    <div>
+        <a class="ui basic orange button" href="/blogs/<%=thisBlog._id%>/edit"> edit</a>
+        <form id = "delete" action = "/blogs/<%=thisBlog._id%>?_method=DELETE" method = "post">
+            <button class="ui basic red button">Delete</button>
+        </form>
+    </div>
+
+
+
+</div>
+
+
+<% include ./partials/footer.ejs %>
