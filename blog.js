@@ -102,8 +102,7 @@ app.get("/blogs/:id",function (req, res) {
 app.get("/blogs/:id/edit",function (req, res) {
     //req.params.id from the '/blogs/:id/edit'
 
-    //sanitize
-    req.body.blog.body = req.sanitize(req.body.blog.body);
+
     Blog.findById(req.params.id,function (err, foundedBlog) {
         if(err){
             console.log(err);
@@ -121,6 +120,8 @@ app.get("/blogs/:id/edit",function (req, res) {
 app.put("/blogs/:id",function (req, res) {
     //req.params.id from the '/blogs/:id/edit'
     // req.body.blog from 'req body'
+    //sanitize
+    req.body.blog.body = req.sanitize(req.body.blog.body);
     Blog.findByIdAndUpdate(req.params.id,req.body.blog,function (err,updatedBlog){
         if(err){
             res.redirect("/blogs");
